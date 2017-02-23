@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Login from './Login.js';
 import Register from './Register.js';
+import Home from './Home.js';
 import {Router, Route,Link, browserHistory} from 'react-router';
 export default class Basic extends React.Component{
 
@@ -22,7 +23,9 @@ return(
 <h1>Hello from React
 {this.check1()}</h1>
 <li><ul><Link to = '/Login'>Login</Link></ul>
-      <ul><Link to = '/Register'>Register</Link></ul></li>
+      <ul><Link to = '/Register'>Register</Link></ul>
+      <ul><Link to = '/Home'>Home</Link></ul></li>
+
 
 {this.props.children}
 </div>
@@ -34,7 +37,9 @@ return(
 
 
 ReactDOM.render(<Router history = {browserHistory}>
-                  <Route path = "/" component = {Basic} />
+                  <Route path = "/" component = {Basic}>
                   <Route path = "/Login" component = {Login} />
                   <Route path = "/Register" component = {Register} />
+                  <Route path = "/Home" component = {Home} />
+                  </Route>
                 </Router>,document.getElementById("start"));
